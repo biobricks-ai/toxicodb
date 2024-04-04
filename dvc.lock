@@ -10,3 +10,74 @@ stages:
     - path: data/mtcars.parquet
       md5: 77cf29accf9535522fad7db1486eff9a
       size: 6243
+  download:
+    cmd: stages/01_download.sh
+    deps:
+    - path: stages/01_download.sh
+      hash: md5
+      md5: e4c8147f1d5d00718719bb6c8d214e95
+      size: 793
+    outs:
+    - path: download
+      hash: md5
+      md5: 588cdc63b0864d417a50ff02f98da890.dir
+      size: 1950797652
+      nfiles: 6
+  unzip:
+    cmd: stages/02_process_csv.sh
+    deps:
+    - path: download
+      hash: md5
+      md5: 588cdc63b0864d417a50ff02f98da890.dir
+      size: 1950797652
+      nfiles: 6
+    - path: stages/02_process_csv.sh
+      hash: md5
+      md5: d0f5f5f8aed746c6b7feb0943dd006d6
+      size: 627
+    outs:
+    - path: raw
+      hash: md5
+      md5: 219341da3c4200af55a14a299daf6da2.dir
+      size: 10123421392
+      nfiles: 4
+  process_csv:
+    cmd: stages/02_process_csv.sh
+    deps:
+    - path: download
+      hash: md5
+      md5: 588cdc63b0864d417a50ff02f98da890.dir
+      size: 1950797652
+      nfiles: 6
+    - path: stages/02_process_csv.sh
+      hash: md5
+      md5: f4bc4c45e5fa705da769f0c8d98252bd
+      size: 915
+    outs:
+    - path: raw
+      hash: md5
+      md5: a01e7010ff539ba41011292b72f22cb0.dir
+      size: 10126867604
+      nfiles: 6
+  build:
+    cmd: stages/03_build.sh
+    deps:
+    - path: raw
+      hash: md5
+      md5: a01e7010ff539ba41011292b72f22cb0.dir
+      size: 10126867604
+      nfiles: 6
+    - path: stages/03_build.sh
+      hash: md5
+      md5: e14a6732b55c80de36250216701820a4
+      size: 835
+    - path: stages/csv2parquet.py
+      hash: md5
+      md5: 9a2162526bda6240700da8dd52db06de
+      size: 284
+    outs:
+    - path: brick
+      hash: md5
+      md5: 128455644e15b8e922c1638eab35a568.dir
+      size: 1262741259
+      nfiles: 6

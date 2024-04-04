@@ -7,5 +7,5 @@ InFileName = sys.argv[1]
 OutFileName = sys.argv[2]
 
 print(f"csv2parquet: Converting file {InFileName}")
-DF = pd.read_csv(InFileName, sep=',')
+DF = pd.read_csv(InFileName, sep=',', keep_default_na=False)
 DF.to_parquet(OutFileName)
