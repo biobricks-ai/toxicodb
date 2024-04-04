@@ -1,35 +1,16 @@
-# How to build bricks
+# ToxicoDB
 
-1. Create a brick named `{newbrick}` from this template
-```
-gh repo create biobricks-ai/{newbrick} -p biobricks-ai/brick-template --public
-gh repo clone biobricks-ai/{newbrick}
-cd newbrick
-```
+<a href="https://github.com/biobricks-ai/toxicodb/actions"><img src="https://github.com/biobricks-ai/toxicodb/actions/workflows/bricktools-check.yaml/badge.svg?branch=main"/></a>
 
-2. Edit stages according to your needs:
-    Recommended scripts:
-    - ``01_download.sh``
-    - ``02_unzip.sh``
-    - ``03_build.sh`` calling a function to process individual files like ``csv2parquet.R`` or ``csv2parquet.py``
+<https://www.toxicodb.ca/>
 
-3. Replace stages in dvc.yaml with your new stages
-    
-4. Build your brick
-```
-dvc repro # runs new stages
-```
+## Description
 
-5. Push the data to biobricks.ai
-```
-dvc push -r s3.biobricks.ai 
-```
+> ToxicoDB is a database of curated toxicogenomics datasets that provides convenient data summar and visualization to mine these complex data. Users can find compound and gene annotations, visualize differential gene expression and enriched pathways within datasets for compound of interest.
 
-6. Commit the brick
+## Usage
+```{R}
+biobricks::install_brick("toxicodb")
+biobricks::brick_pull("toxicodb")
+biobricks::brick_load("toxicodb")
 ```
-git add -A && git commit -m "some message"
-git push
-```
-
-7. Monitor the bricktools github action
-
