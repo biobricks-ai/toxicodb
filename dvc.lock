@@ -73,11 +73,11 @@ stages:
       size: 835
     - path: stages/csv2parquet.py
       hash: md5
-      md5: 9a2162526bda6240700da8dd52db06de
-      size: 284
+      md5: fd3a0b38efca8bee18a669d118058869
+      size: 533
     outs:
     - path: brick
       hash: md5
-      md5: 128455644e15b8e922c1638eab35a568.dir
-      size: 1262741259
+      md5: 671ecf3a1a6eed18af65a52d93d59099.dir
+      size: 1325155469
       nfiles: 6
