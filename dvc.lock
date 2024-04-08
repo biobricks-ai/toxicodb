@@ -69,11 +69,11 @@ stages:
       nfiles: 6
     - path: stages/03_build.py
       hash: md5
-      md5: da776ba791c1b615e5de4ab049abf3e8
-      size: 444
+      md5: 47e70f4168d89c86c34bf7eff8255724
+      size: 517
     outs:
     - path: brick
       hash: md5
-      md5: d751713988987e9331980363e24189ce.dir
-      size: 0
-      nfiles: 0
+      md5: 245d39fbf73bb036c1d56fda13417cd9.dir
+      size: 1375523812
+      nfiles: 6
