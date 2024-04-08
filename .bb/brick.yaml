@@ -1,0 +1,15 @@
+id: "https://biobricks.ai/biobricks-ai/toxicodb"
+title: ToxicoDB
+description: |
+  TODO(
+    Description Here
+  )
+resources:
+  brick/TGGATEsHuman.parquet:
+    title: "TGGATEs Human Dataset"
+    description: |
+      TODO(Contains data on ...)
+  brick/TGGATEsRat.parquet:
+    title: "Dataset of Chemical Compounds"
+    description: |
+      TODO(Contains data on ...)
